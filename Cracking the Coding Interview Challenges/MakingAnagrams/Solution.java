@@ -1,8 +1,12 @@
-import java.io.*;
+
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+
+/*Making Anagrams
+ * 
+ *Given two strings,  and , that may or may not be of the same length, 
+ *determine the minimum number of character deletions required to make 
+ * and  anagrams. Any characters can be deleted from either of the strings.
+*/
 
 public class Solution {
 	public static int numberNeeded(String first, String second) {
@@ -11,24 +15,22 @@ public class Solution {
 		int x = 0;
 		int y = 0;
 		do {
-			if(first.charAt(x)!= second.charAt(y)){
+			if (first.charAt(x) != second.charAt(y)) {
 				if (first.charAt(x) > second.charAt(y)) {
 					x--;
 					numberNeeded++;
-				}else{
+				} else {
 					y--;
 					numberNeeded++;
 				}
-					
+
 			}
-			System.out.println("numberNeeded = "+ numberNeeded+"  x = "+ x+"  y="+ y);
-				
+
 			x++;
 			y++;
 		} while ((x < first.length()) && (y < second.length()));
-		System.out.println("tamanho x"+first.length()+"  x"+x+"   tamanho y"+second.length()+"  y"+y);
-		
-		numberNeeded +=  first.length() -x +second.length() - y;
+
+		numberNeeded += first.length() - x + second.length() - y;
 		return numberNeeded;
 
 	}
@@ -45,8 +47,8 @@ public class Solution {
 		Scanner in = new Scanner(System.in);
 		String a = in.next();
 		String b = in.next();
-		int resultado = 0; 
-		resultado = numberNeeded(Organizado(a), Organizado(b)) ;
+		int resultado = 0;
+		resultado = numberNeeded(Organizado(a), Organizado(b));
 		System.out.println(resultado);
 
 	}
